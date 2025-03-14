@@ -3,9 +3,472 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Travel</title>
+    <!-- Import font Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    
+    <!-- Loading Animation with SVG -->
+    <div id="loading-screen">
+        <div class="loading-content">
+            <div class="airplane">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="120" height="120" fill="#ffffff">
+                    <path d="M21,16V14L13,9V3.5A1.5,1.5,0,0,0,11.5,2h0A1.5,1.5,0,0,0,10,3.5V9L2,14V16L10,13.5V19L8,20.5V22L11.5,21,15,22V20.5L13,19V13.5Z"/>
+                </svg>
+            </div>
+            <h1 class="loading-title">Travel</h1>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigasi -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">Travel</div>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#packages" class="nav-link">Our Packages</a></li>
+                <li><a href="#destinations" class="nav-link">Popular Destinations</a></li>
+                <li><a href="#contact" class="nav-link">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Banner Section -->
+    <section id="home" class="hero">
+        <div class="slider-container">
+            <div class="slide active">
+                <video autoplay muted loop>
+                <source src="https://cdn.pixabay.com/video/2024/11/11/240841_tiny.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="slide">
+                <video autoplay muted loop>
+                <source src="https://cdn.pixabay.com/video/2021/04/12/70796-538877060_tiny.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="slide">
+                <video autoplay muted loop>
+                <source src="https://cdn.pixabay.com/video/2023/06/28/169249-840702546_tiny.mp4" type="video/mp4">
+            </video>
+            </div>
+        </div>
+        <div class="hero-content">
+            <h1>Exploration of the World</h1>
+            <p>Explore the beauty of the world with us</p>
+            <a href="#packages" class="btn">Start Adventure</a>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section id="packages" class="packages">
+        <div class="container">
+            <h2 class="animate-on-scroll">Our Packages</h2>
+            <div class="package-card animate-on-scroll">
+                <div class="package-image">
+                    <img src="https://static1.evcdn.net/images/reduction/355607_w-3840_h-2160_q-70_m-crop.jpg" alt="Maldives">
+                </div>
+                <div class="package-content">
+                    <div class="package-info">
+                        <div class="package-text">
+                            <h3>Paradise Escape in Maldives</h3>
+                            <p>Experience crystal clear waters, pristine white beaches, and luxurious overwater bungalows in one of the world's most beautiful tropical destinations.</p>
+                        </div>
+                        <div class="package-details">
+                            <div class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>7D/6N</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-user"></i>
+                                <span>pax: 10</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Maldives</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="package-price">
+                        <div class="review">
+                            <div class="stars">★★★★★</div>
+                            <span>(25 reviews)</span>
+                        </div>
+                        <div class="price-info">
+                            <div class="price">$750</div>
+                            <span>/ per person</span>
+                        </div>
+                        <button class="add-to-cart">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                                <path d="M11 9h2V6h3V4h-3V1h-2v3H8v2h3v3zm-4 9c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2zm-9.83-3.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+                            </svg>
+                            Add to Cart
+                        </button>
+                        <button class="btn book-now" onclick="openBookingModal('maldives')">BOOK NOW</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lotte World Package -->
+            <div class="package-card animate-on-scroll">
+                <div class="package-image">
+                    <img src="https://cdn.globaleur.com/places/5e5ed54401b751678fee2194/5e5f2feaff2fe7794148c7be/o7Acpc34fP_ori.jpg" alt="Lotte World">
+                </div>
+                <div class="package-content">
+                    <div class="package-info">
+                        <div class="package-text">
+                            <h3>Seoul Adventure: Lotte World</h3>
+                            <p>Enjoy the magic of Korea's largest indoor theme park with thrilling rides, spectacular parades, and immersive cultural experiences in the heart of Seoul.</p>
+                        </div>
+                        <div class="package-details">
+                            <div class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>5D/4N</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-user"></i>
+                                <span>pax: 8</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Seoul, Korea</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="package-price">
+                        <div class="review">
+                            <div class="stars">★★★★★</div>
+                            <span>(18 reviews)</span>
+                        </div>
+                        <div class="price-info">
+                            <div class="price">$650</div>
+                            <span>/ per person</span>
+                        </div>
+                        <button class="btn book-now" onclick="openBookingModal('seoul')">BOOK NOW</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dubai Package -->
+            <div class="package-card animate-on-scroll">
+                <div class="package-image">
+                    <img src="https://metropolitan.realestate/wp-content/uploads/2021/06/burj-khalifa-district-00-1-scaled.jpg" alt="Burj Khalifa">
+                </div>
+                <div class="package-content">
+                    <div class="package-info">
+                        <div class="package-text">
+                            <h3>Dubai Luxury Experience</h3>
+                            <p>Discover the wonders of Dubai with visits to the iconic Burj Khalifa, desert safaris, luxury shopping, and unforgettable dining experiences in this ultramodern city.</p>
+                        </div>
+                        <div class="package-details">
+                            <div class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>6D/5N</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-user"></i>
+                                <span>pax: 6</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Dubai, UAE</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="package-price">
+                        <div class="review">
+                            <div class="stars">★★★★★</div>
+                            <span>(22 reviews)</span>
+                        </div>
+                        <div class="price-info">
+                            <div class="price">$850</div>
+                            <span>/ per person</span>
+                        </div>
+                        <button class="btn book-now" onclick="openBookingModal('dubai')">BOOK NOW</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mount Fuji Package -->
+            <div class="package-card animate-on-scroll">
+                <div class="package-image">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSf1ddpUhYYKD_mQ-z1vve-voR1fzFJOrfTIttwkjjoJWm0uM_28rCMRT4N7tUv0N5utgE&usqp=CAU" alt="Mount Fuji">
+                </div>
+                <div class="package-content">
+                    <div class="package-info">
+                        <div class="package-text">
+                            <h3>Mount Fuji Exploration</h3>
+                            <p>Experience the majestic beauty of Japan's iconic Mount Fuji with guided hiking tours, hot springs, traditional ryokan stays, and breathtaking views of this sacred mountain.</p>
+                        </div>
+                        <div class="package-details">
+                            <div class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>8D/7N</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-user"></i>
+                                <span>pax: 12</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Japan</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="package-price">
+                        <div class="review">
+                            <div class="stars">★★★★★</div>
+                            <span>(30 reviews)</span>
+                        </div>
+                        <div class="price-info">
+                            <div class="price">$950</div>
+                            <span>/ per person</span>
+                        </div>
+                        <button class="btn book-now" onclick="openBookingModal('fuji')">BOOK NOW</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ka'bah Package -->
+            <div class="package-card animate-on-scroll">
+                <div class="package-image">
+                    <img src="https://a.mktgcdn.com/p/okcmQaxCoRc4USuNhJqY3ieXHjzKYchoazKGvR0rsGY/1024x768.jpg" alt="Ka'bah">
+                </div>
+                <div class="package-content">
+                    <div class="package-info">
+                        <div class="package-text">
+                            <h3>Sacred Journey to Mecca</h3>
+                            <p>Experience a spiritual journey to the holiest site in Islam. Visit the Ka'bah, perform Tawaf, and explore the historic sites of Mecca with our guided tour package.</p>
+                        </div>
+                        <div class="package-details">
+                            <div class="detail-item">
+                                <i class="fas fa-clock"></i>
+                                <span>10D/9N</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-user"></i>
+                                <span>pax: 15</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Mecca, Saudi Arabia</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="package-price">
+                        <div class="review">
+                            <div class="stars">★★★★★</div>
+                            <span>(30 reviews)</span>
+                        </div>
+                        <div class="price-info">
+                            <div class="price">$1200</div>
+                            <span>/ per person</span>
+                        </div>
+                        <button class="btn book-now" onclick="openBookingModal('mecca')">BOOK NOW</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Destinations Section -->
+    <section id="destinations" class="destinations">
+        <div class="container">
+            <h2 class="animate-on-scroll">Popular Destinations</h2>
+            <p class="section-desc animate-on-scroll">Discover amazing places around the world</p>
+            
+            <div class="destination-grid">
+                <div class="destination-card animate-on-scroll" onclick="openDestinationModal('lotte')">
+                    <img src="https://cdn.globaleur.com/places/5e5ed54401b751678fee2194/5e5f2feaff2fe7794148c7be/o7Acpc34fP_ori.jpg" alt="Lotte World">
+                    <div class="destination-info">
+                        <h3>Lotte World</h3>
+                        <p>Seoul, Korea</p>
+                        <div class="rating">★★★★★</div>
+                    </div>
+                </div>
+
+                <div class="destination-card animate-on-scroll" onclick="openDestinationModal('burj')">
+                    <img src="https://metropolitan.realestate/wp-content/uploads/2021/06/burj-khalifa-district-00-1-scaled.jpg" alt="Burj Khalifa">
+                    <div class="destination-info">
+                        <h3>Burj Khalifa</h3>
+                        <p>Dubai, UAE</p>
+                        <div class="rating">★★★★★</div>
+                    </div>
+                </div>
+
+                <div class="destination-card animate-on-scroll" onclick="openDestinationModal('kaabah')">
+                    <img src="https://a.mktgcdn.com/p/okcmQaxCoRc4USuNhJqY3ieXHjzKYchoazKGvR0rsGY/1024x768.jpg" alt="Ka'bah">
+                    <div class="destination-info">
+                        <h3>Ka'bah</h3>
+                        <p>Mecca, Saudi Arabia</p>
+                        <div class="rating">★★★★★</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section with better layout -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="animate-on-scroll">Contact Us</h2>
+            <p class="section-desc animate-on-scroll">Get in touch with us for your travel needs</p>
+            
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div class="info-content">
+                            <h3>Location</h3>
+                            <p>123 Travel Street, Jakarta, Indonesia</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <div class="info-content">
+                            <h3>Phone</h3>
+                            <p>+62 123 456 789</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div class="info-content">
+                            <h3>Email</h3>
+                            <p>info@travelagency.com</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <form id="contactForm" onsubmit="return validateForm()">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" placeholder="Enter your full name">
+                            <span class="error" id="nameError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" placeholder="Enter your email address">
+                            <span class="error" id="emailError"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" placeholder="Enter subject">
+                        <span class="error" id="subjectError"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" rows="5" placeholder="Enter your message"></textarea>
+                        <span class="error" id="messageError"></span>
+                    </div>
+                    <button type="submit" class="btn form-submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Booking Modal -->
+    <div id="bookingModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeBookingModal()">&times;</span>
+            <h2>Book Your Trip</h2>
+            
+            <form id="bookingForm" onsubmit="return validateBookingForm()">
+                <div class="form-group">
+                    <label for="bookingName">Full Name</label>
+                    <input type="text" id="bookingName" placeholder="Enter your full name">
+                    <span class="error" id="bookingNameError"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="bookingEmail">Email</label>
+                    <input type="email" id="bookingEmail" placeholder="Enter your email address">
+                    <span class="error" id="bookingEmailError"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="bookingPhone">Phone Number</label>
+                    <input type="tel" id="bookingPhone" placeholder="Enter your phone number">
+                    <span class="error" id="bookingPhoneError"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="bookingDestination">Destination</label>
+                    <select id="bookingDestination">
+                        <option value="">Select destination</option>
+                        <option value="maldives">Maldives</option>
+                        <option value="seoul">Seoul, Korea (Lotte World)</option>
+                        <option value="dubai">Dubai, UAE</option>
+                        <option value="mecca">Mecca, Saudi Arabia</option>
+                        <option value="fuji">Mount Fuji, Japan</option>
+                    </select>
+                    <span class="error" id="bookingDestinationError"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="bookingDate">Travel Date</label>
+                    <input type="date" id="bookingDate">
+                    <span class="error" id="bookingDateError"></span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="bookingPax">Number of Travelers</label>
+                    <input type="number" id="bookingPax" min="1" max="20" value="1">
+                    <span class="error" id="bookingPaxError"></span>
+                    <span class="warning" id="paxWarning"></span>
+                </div>
+                
+                <div class="price-preview">
+                    <p>Total Price: <span id="priceDisplay">$0</span></p>
+                </div>
+                
+                <button type="submit" class="btn form-submit">Continue</button>
+            </form>
+            
+            <div id="bookingSummary" style="display: none;">
+                <!-- Booking summary will be displayed here -->
+            </div>
+            
+            <div id="paymentSection" style="display: none;">
+                <!-- Payment options will be displayed here -->
+            </div>
+            
+            <div id="receiptSection" style="display: none;">
+                <!-- Receipt will be displayed here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Destination Modal -->
+    <div id="destinationModal" class="modal">
+        <div class="modal-content destination-modal-content">
+            <span class="close" onclick="closeDestinationModal()">&times;</span>
+            <div id="destinationModalContent">
+                <!-- Destination details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Message Popup -->
+    <div id="successPopup" class="popup">
+        <div class="popup-content">
+            <span class="close-popup">&times;</span>
+            <div class="success-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="64" height="64">
+                    <circle cx="12" cy="12" r="11" fill="#4CAF50"/>
+                    <path d="M9,16.2L4.8,12l-1.4,1.4L9,19L21,7l-1.4-1.4L9,16.2z" fill="white"/>
+                </svg>
+            </div>
+            <h3>Success!</h3>
+            <p id="successMessage">Your message has been sent successfully.</p>
+            <button class="btn solid close-btn">OK</button>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
 </body>
 </html>

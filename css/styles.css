@@ -1,0 +1,1421 @@
+/* Reset dan Base Styles - Mengatur ulang margin, padding, dan box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+}
+
+/* Variables - Mendefinisikan variabel warna dan properti yang sering digunakan */
+:root {
+    --sky-blue: #87CEEB;
+    --dark-blue: #1E90FF;
+    --deep-blue: #0066CC; /* Warna biru yang lebih gelap untuk kontras */
+    --white: #ffffff;
+    --black: #333333; /* Warna hitam untuk teks */
+    --gray: #666666;
+    --light-gray: #f9f9f9;
+    --border-color: #dddddd;
+    --shadow: 0 5px 15px rgba(0,0,0,0.1);
+    --border-radius: 15px;
+}
+
+/* Common Styles - Style umum yang digunakan di seluruh website */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Style untuk tombol dengan kontras yang lebih baik */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid var(--white);
+    background: transparent;
+    color: var(--white);
+    font-weight: 600; /* Membuat teks lebih tebal untuk kontras */
+}
+
+.btn:hover {
+    background: var(--white);
+    color: var(--deep-blue);
+}
+
+/* Tombol dengan background solid */
+.btn.solid {
+    background: var(--deep-blue);
+    border-color: var(--deep-blue);
+    color: var(--white);
+}
+
+.btn.solid:hover {
+    background: var(--dark-blue);
+    border-color: var(--dark-blue);
+}
+
+/* Tombol khusus untuk form dengan kontras yang lebih baik */
+.btn.form-submit {
+    background: var(--deep-blue);
+    border-color: var(--deep-blue);
+    color: var(--white);
+    width: 100%;
+    font-weight: 600;
+}
+
+.btn.form-submit:hover {
+    background: var(--dark-blue);
+    border-color: var(--dark-blue);
+}
+
+/* Navbar Styles - Style untuk navigasi */
+.navbar {
+    position: fixed;
+    width: 100%;
+    background: transparent;
+    padding: 20px 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+/* Style navbar saat di-scroll dengan kontras yang lebih baik */
+.navbar.scrolled {
+    background: var(--white);
+    box-shadow: var(--shadow);
+}
+
+.navbar.scrolled .logo {
+    color: var(--black); /* Warna hitam untuk kontras yang lebih baik */
+}
+
+.navbar.scrolled .nav-links li a {
+    color: var(--black); /* Warna hitam untuk kontras yang lebih baik */
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-weight: 500; /* Membuat teks lebih tebal untuk kontras */
+}
+
+/* Active navigation link */
+.nav-links li a.active {
+    color: var(--white);
+    font-weight: 700;
+    position: relative;
+}
+
+.nav-links li a.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    right: 20px;
+    height: 3px;
+    background-color: var(--white);
+    border-radius: 3px;
+}
+
+.navbar.scrolled .nav-links li a.active {
+    color: var(--deep-blue);
+}
+
+.navbar.scrolled .nav-links li a.active::after {
+    background-color: var(--deep-blue);
+}
+
+/* Hero Section dengan Video Background */
+.hero {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.video-container video {
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+}
+
+/* Slider untuk video background */
+.slider-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide video {
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 0 20px;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+/* Ticket Style - Style untuk tiket */
+.ticket-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 40px 0;
+}
+
+.ticket {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.ticket:hover {
+    transform: translateY(-10px);
+}
+
+.ticket-header {
+    background: var(--deep-blue);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.ticket-header h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.price {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.ticket-body {
+    padding: 20px;
+}
+
+.ticket-info {
+    margin-bottom: 20px;
+}
+
+.ticket-info p {
+    margin: 10px 0;
+    color: #666;
+}
+
+.ticket-info i {
+    margin-right: 10px;
+    color: var(--deep-blue);
+}
+
+.ticket-footer {
+    text-align: center;
+}
+
+/* Package Styles - Style untuk paket perjalanan */
+.packages {
+    padding: 80px 0;
+    background: #f9f9f9;
+}
+
+/* Animasi untuk elemen saat scroll */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.animate-on-scroll.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.package-card {
+    display: flex;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin: 30px 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.package-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.package-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: var(--deep-blue);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.package-card:hover::before {
+    transform: scaleX(1);
+}
+
+.package-image {
+    flex: 0 0 40%;
+    position: relative;
+    overflow: hidden;
+}
+
+.package-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.package-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 102, 204, 0.2);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.package-card:hover .package-image::after {
+    opacity: 1;
+}
+
+.package-card:hover .package-image img {
+    transform: scale(1.05);
+}
+
+.package-content {
+    flex: 1;
+    display: flex;
+    padding: 30px;
+}
+
+.package-info {
+    flex: 1;
+    padding-right: 30px;
+}
+
+.package-text h3 {
+    color: var(--deep-blue);
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.package-text p {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.package-details {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #666;
+}
+
+.detail-item i {
+    color: var(--deep-blue);
+}
+
+.package-price {
+    flex: 0 0 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding-left: 30px;
+    border-left: 1px solid #eee;
+}
+
+.review {
+    text-align: right;
+}
+
+.stars {
+    color: #FFD700;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.price-info {
+    text-align: right;
+}
+
+.price {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--deep-blue);
+}
+
+.price-info span {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Tombol Book Now dengan kontras yang lebih baik */
+.book-now {
+    width: 100%;
+    text-align: center;
+    background: var(--deep-blue);
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    font-weight: 600;
+}
+
+.book-now:hover {
+    background: var(--dark-blue);
+}
+
+/* Contact Section Styles - Style untuk bagian kontak */
+.contact {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 50px;
+    margin-top: 40px;
+}
+
+.contact-info {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 30px;
+}
+
+.info-item i {
+    font-size: 24px;
+    color: var(--deep-blue);
+    margin-right: 15px;
+    margin-top: 5px;
+}
+
+.info-content h3 {
+    color: var(--deep-blue);
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+}
+
+.info-content p {
+    color: #666;
+}
+
+.contact form {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #aaa;
+    font-family: 'Poppins', sans-serif;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: var(--deep-blue);
+    outline: none;
+}
+
+.error {
+    color: #ff0000;
+    font-size: 14px;
+    margin-top: 5px;
+    display: block;
+}
+
+/* Destination Styles - Style for popular destinations */
+.destinations {
+    padding: 80px 0;
+}
+
+.destination-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.destination-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.destination-card:hover {
+    transform: translateY(-5px);
+}
+
+.destination-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.destination-info {
+    padding: 1.5rem;
+}
+
+.destination-info h3 {
+    color: var(--deep-blue);
+    margin-bottom: 0.5rem;
+}
+
+.rating {
+    color: #FFD700;
+    margin-top: 0.5rem;
+}
+
+/* Destination card hover effect */
+.destination-card::before {
+    content: 'View Details';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.destination-card:hover::before {
+    opacity: 1;
+}
+
+/* Destination Modal Styles - Improved */
+.destination-modal-content {
+    max-width: 800px;
+    padding: 0;
+    overflow: hidden;
+    border-radius: 20px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.destination-header {
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.destination-header img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.modal .close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+    z-index: 10;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.5);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1;
+    transition: all 0.3s ease;
+}
+
+.modal .close:hover {
+    background: rgba(0, 0, 0, 0.8);
+    transform: rotate(90deg);
+}
+
+.destination-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: white;
+}
+
+.destination-title h2 {
+    margin: 0;
+    font-size: 2rem;
+    text-align: left;
+    color: white;
+}
+
+.destination-title p {
+    margin: 5px 0 0;
+    font-size: 1rem;
+}
+
+.destination-body {
+    padding: 30px;
+}
+
+.destination-description {
+    margin-bottom: 30px;
+    line-height: 1.8;
+}
+
+.destination-features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.feature-item i {
+    color: var(--deep-blue);
+    font-size: 1.2rem;
+}
+
+.destination-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.gallery-item {
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    height: auto;
+}
+
+.gallery-image {
+    height: 150px;
+    overflow: hidden;
+}
+
+.gallery-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .gallery-image img {
+    transform: scale(1.1);
+}
+
+.gallery-caption {
+    padding: 12px;
+    background: var(--deep-blue);
+    color: white;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.destination-cta {
+    margin-top: 30px;
+    text-align: center;
+}
+
+/* Responsive Design - Desain responsif untuk berbagai ukuran layar */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-content p {
+        font-size: 1.2rem;
+    }
+    
+    .package-card,
+    .package-content {
+        flex-direction: column;
+    }
+    
+    .package-info {
+        padding-right: 0;
+        margin-bottom: 30px;
+    }
+    
+    .contact-wrapper,
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .modal-content {
+        width: 95%;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 992px) {
+    .package-card {
+        flex-direction: column;
+    }
+
+    .package-image {
+        height: 300px;
+    }
+
+    .package-content {
+        flex-direction: column;
+    }
+
+    .package-info {
+        padding-right: 0;
+        margin-bottom: 30px;
+    }
+
+    .package-price {
+        border-left: none;
+        border-top: 1px solid #eee;
+        padding-left: 0;
+        padding-top: 20px;
+        align-items: center;
+    }
+
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Modal Styles - Style untuk modal booking */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1100;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #666;
+}
+
+.close:hover {
+    color: var(--deep-blue);
+}
+
+/* Price Preview Style */
+.price-preview {
+    background: var(--light-gray);
+    padding: 15px;
+    border-radius: 8px;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.price-preview p {
+    margin: 0;
+    font-size: 18px;
+}
+
+#priceDisplay {
+    font-weight: bold;
+    color: var(--deep-blue);
+    font-size: 22px;
+}
+
+/* Booking Summary Style */
+#bookingSummary {
+    background: var(--light-gray);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#bookingSummary h3 {
+    color: var(--deep-blue);
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+#bookingSummary p {
+    margin: 10px 0;
+}
+
+.summary-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn-secondary {
+    background: #6c757d;
+    border-color: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #5a6268;
+    border-color: #5a6268;
+}
+
+/* Heading Styles untuk semua section */
+h2 {
+    font-size: 2.5rem;
+    color: var(--deep-blue);
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.section-desc {
+    text-align: center;
+    color: var(--gray);
+    margin-bottom: 40px;
+    font-size: 1.1rem;
+}
+
+/* Payment Options Style */
+.payment-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.payment-option {
+    display: flex;
+    flex-direction: column;
+    background: var(--light-gray);
+    padding: 15px;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.payment-option:has(input:checked) {
+    border-color: var(--deep-blue);
+}
+
+.payment-option label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.payment-option input {
+    margin-right: 10px;
+}
+
+.payment-logos {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    margin-left: 25px;
+}
+
+.payment-logo {
+    height: 30px;
+    object-fit: contain;
+}
+
+.payment-details {
+    background: var(--light-gray);
+    padding: 15px;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.payment-details p {
+    margin: 5px 0;
+    font-size: 18px;
+}
+
+/* Receipt Style */
+.receipt {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.receipt-header {
+    background: var(--deep-blue);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.receipt-header h3 {
+    margin: 0 0 10px;
+    font-size: 24px;
+}
+
+.success-message {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 5px 10px;
+    border-radius: 20px;
+    display: inline-block;
+    font-size: 14px;
+}
+
+.receipt-details {
+    padding: 20px;
+}
+
+.receipt-details p {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+    padding-bottom: 5px;
+    border-bottom: 1px dashed #eee;
+}
+
+.receipt-footer {
+    text-align: center;
+    padding: 20px;
+    background: #f9f9f9;
+    font-style: italic;
+}
+
+.receipt-footer p {
+    margin: 5px 0;
+}
+
+.receipt-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 0 20px 20px;
+}
+
+/* Print styles */
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    
+    .print-receipt, .print-receipt * {
+        visibility: visible;
+    }
+    
+    .print-receipt {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        padding: 20px;
+    }
+    
+    .receipt-print-header {
+        text-align: center;
+    margin-bottom: 20px;
+}
+
+    .receipt-actions {
+        display: none;
+    }
+}
+
+/* Warning message style */
+.warning {
+    color: #ff9800;
+    font-size: 14px;
+    margin-top: 5px;
+    display: none;
+    font-weight: 500;
+}
+
+/* Disable button style */
+.btn.disabled {
+    background-color: #cccccc;
+    border-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.btn.disabled:hover {
+    background-color: #cccccc;
+    border-color: #cccccc;
+}
+
+/* Sold out badge */
+.sold-out-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #ff0000;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    z-index: 10;
+}
+
+/* Loading Screen Animation */
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--deep-blue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+}
+
+.loading-content {
+    text-align: center;
+}
+
+.loading-title {
+    color: white;
+    font-size: 3rem;
+    margin: 20px 0;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+}
+
+.airplane {
+    animation: fly 3s infinite ease-in-out;
+}
+
+@keyframes fly {
+    0% {
+        transform: translateX(-50px) translateY(0);
+    }
+    50% {
+        transform: translateX(50px) translateY(-20px);
+    }
+    100% {
+        transform: translateX(-50px) translateY(0);
+    }
+}
+
+.loading-bar {
+    width: 300px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    margin: 20px auto;
+    overflow: hidden;
+}
+
+.loading-progress {
+    height: 100%;
+    width: 0;
+    background: white;
+    border-radius: 10px;
+    animation: progress 3s forwards;
+}
+
+@keyframes progress {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+/* Hide loading screen when loaded */
+.loaded #loading-screen {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Loading Animation - Improved */
+.airplane svg {
+    width: 120px;
+    height: 120px;
+    fill: white;
+}
+
+/* Custom Success Popup */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    animation: popupFadeIn 0.3s ease;
+}
+
+@keyframes popupFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.close-popup {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #999;
+    transition: color 0.3s ease;
+}
+
+.close-popup:hover {
+    color: #333;
+}
+
+.success-icon {
+    margin: 0 auto 20px;
+    width: 64px;
+    height: 64px;
+}
+
+.popup-content h3 {
+    margin-bottom: 10px;
+    color: #4CAF50;
+    font-size: 24px;
+}
+
+.popup-content p {
+    margin-bottom: 20px;
+    color: #666;
+}
+
+.close-btn {
+    padding: 10px 30px;
+    margin-top: 10px;
+}
+
+/* Cart and History Icons */
+.nav-right {
+    display: flex;
+    align-items: center;
+}
+
+.history-icon {
+    position: relative;
+    cursor: pointer;
+    color: white;
+    transition: transform 0.3s ease;
+}
+
+.navbar.scrolled .history-icon {
+    color: var(--black);
+}
+
+.history-icon:hover {
+    transform: scale(1.1);
+}
+
+/* History Item Styles */
+.history-item {
+    background: #f9f9f9;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.history-item-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #666;
+}
+
+.history-item-details {
+    margin-top: 10px;
+}
+
+.history-product {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.history-product-name {
+    flex: 1;
+}
+
+.history-total {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px dashed #ddd;
+}
+
+.history-actions {
+    margin-top: 15px;
+    text-align: right;
+}
+
+.view-receipt-btn {
+    padding: 8px 15px;
+    font-size: 14px;
+}
+
+/* Receipt Styles */
+.receipt {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.receipt-header {
+    background: var(--deep-blue);
+    color: white;
+        padding: 20px;
+    text-align: center;
+}
+
+.receipt-header h3 {
+    margin: 0 0 10px;
+    font-size: 24px;
+}
+
+.success-message {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 5px 10px;
+    border-radius: 20px;
+    display: inline-block;
+    font-size: 14px;
+}
+
+.receipt-details {
+    padding: 20px;
+}
+
+.receipt-details p {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+    padding-bottom: 5px;
+    border-bottom: 1px dashed #eee;
+}
+
+.receipt-footer {
+    text-align: center;
+    padding: 20px;
+    background: #f9f9f9;
+    font-style: italic;
+}
+
+.receipt-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 0 20px 20px;
+}
